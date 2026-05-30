@@ -1,0 +1,47 @@
+# Fahmi Hyperland - Systemd Services & Crontab
+
+# ============================================
+# SYSTEMD USER SERVICES (enable --user)
+# ============================================
+
+# Hyprpaper (wallpaper daemon)
+systemctl --user enable hyprpaper
+
+# Hypridle (idle daemon)
+systemctl --user enable hypridle
+
+# Hyprpolkitagent (polkit agent)
+systemctl --user enable hyprpolkitagent
+
+# Network Manager Applet
+# Started via exec.lua on boot
+
+# Bluetooth Applet
+# Started via exec.lua on boot
+
+# Clipboard Monitor
+# Started via exec.lua on boot
+
+# ============================================
+# CRONTAB ENTRIES
+# ============================================
+# These are automatically set by compile-run-binaries.sh
+
+# Battery check every 5 minutes
+*/5 * * * * XDG_RUNTIME_DIR=/run/user/1000 /tmp/battery-check
+
+# Updates check every 6 hours
+0 */6 * * * XDG_RUNTIME_DIR=/run/user/1000 /tmp/updates-check
+
+# ============================================
+# STARTUP ORDER (via exec.lua)
+# ============================================
+# 1. hyprpm reload && hyprctl reload
+# 2. hyprpaper
+# 3. compile-run-binaries.sh (compiles AGS + C binaries)
+# 4. hyprpolkitagent
+# 5. gnome-keyring-daemon
+# 6. system-theme.sh apply
+# 7. nm-applet
+# 8. clipboard-monitor
+# 9. blueman-applet

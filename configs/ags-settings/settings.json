@@ -1,0 +1,385 @@
+{
+    "dateFormat": "%H:%M",
+    "hyprsunset": {
+        "kelvin": 6500
+    },
+    "hyprland": {
+        "general": {
+            "border_size": {
+                "name": "Border Size",
+                "value": 0,
+                "min": 0,
+                "max": 10,
+                "type": "int"
+            },
+            "gaps_in": {
+                "name": "Gaps In",
+                "value": 20,
+                "min": 0,
+                "max": 20,
+                "type": "int"
+            },
+            "gaps_out": {
+                "name": "Gaps Out",
+                "value": 25,
+                "min": 0,
+                "max": 40,
+                "type": "int"
+            }
+        },
+        "decoration": {
+            "rounding": {
+                "name": "Rounding",
+                "value": 16,
+                "min": 0,
+                "max": 50,
+                "type": "int"
+            },
+            "active_opacity": {
+                "name": "Active Opacity",
+                "value": 0.9,
+                "min": 0,
+                "max": 1,
+                "type": "float"
+            },
+            "inactive_opacity": {
+                "name": "Inactive Opacity",
+                "value": 0.8,
+                "min": 0,
+                "max": 1,
+                "type": "float"
+            },
+            "blur": {
+                "enabled": {
+                    "name": "Blur Enabled",
+                    "value": true,
+                    "type": "bool",
+                    "min": 0,
+                    "max": 1
+                },
+                "size": {
+                    "name": "Blur Size",
+                    "value": 4,
+                    "type": "int",
+                    "min": 0,
+                    "max": 10
+                },
+                "passes": {
+                    "name": "Blur Passes",
+                    "value": 4,
+                    "type": "int",
+                    "min": 0,
+                    "max": 10
+                },
+                "xray": {
+                    "name": "Blur Xray",
+                    "value": false,
+                    "type": "bool",
+                    "min": 0,
+                    "max": 1
+                }
+            },
+            "shadow": {
+                "enabled": {
+                    "name": "Shadow Enabled",
+                    "value": true,
+                    "type": "bool",
+                    "min": 0,
+                    "max": 1
+                },
+                "range": {
+                    "name": "Shadow Range",
+                    "value": 15,
+                    "type": "int",
+                    "min": 0,
+                    "max": 20
+                },
+                "render_power": {
+                    "name": "Shadow Render Power",
+                    "value": 3,
+                    "type": "int",
+                    "min": 0,
+                    "max": 20
+                }
+            }
+        }
+    },
+    "notifications": {
+        "dnd": false
+    },
+    "ui": {
+        "opacity": {
+            "name": "Opacity",
+            "value": 0.6180339887498949,
+            "type": "float",
+            "min": 0,
+            "max": 1
+        },
+        "scale": {
+            "name": "Scale",
+            "value": 10,
+            "type": "int",
+            "min": 10,
+            "max": 30
+        },
+        "fontSize": {
+            "name": "Font Size",
+            "value": 12,
+            "type": "int",
+            "min": 10,
+            "max": 30
+        }
+    },
+    "alwaysOnWidget": {
+        "visibility": {
+            "name": "Always On Widget Visibility",
+            "value": true,
+            "type": "bool",
+            "min": 0,
+            "max": 1
+        }
+    },
+    "autoWorkspaceSwitching": {
+        "name": "Auto Workspace Switching",
+        "value": true,
+        "type": "bool",
+        "min": 0,
+        "max": 1
+    },
+    "dynamicThemeColors": {
+        "name": "Dynamic Theme Colors",
+        "value": true,
+        "type": "bool",
+        "min": 0,
+        "max": 1,
+        "tooltip": "Enable dynamic theme colors based on the current wallpaper"
+    },
+    "dynamicThemeVariants": {
+        "name": "Dynamic Theme Variants",
+        "value": true,
+        "type": "bool",
+        "min": 0,
+        "max": 1,
+        "tooltip": "Enable dynamic theme variants (light/dark) based on the current wallpaper"
+    },
+    "bar": {
+        "lock": true,
+        "orientation": {
+            "name": "Orientation",
+            "value": true,
+            "type": "bool",
+            "min": 0,
+            "max": 1
+        },
+        "layout": [
+            {
+                "name": "workspaces",
+                "icon": "󰒘",
+                "enabled": true
+            },
+            {
+                "name": "information",
+                "icon": "󰒘",
+                "enabled": true
+            },
+            {
+                "name": "utilities",
+                "icon": "󰒘",
+                "enabled": true
+            }
+        ]
+    },
+    "waifuWidget": {
+        "input_history": "",
+        "visibility": true,
+        "current": {
+            "id": 0,
+            "width": 0,
+            "height": 0,
+            "api": {},
+            "tags": []
+        },
+        "api": {
+            "name": "Danbooru",
+            "value": "danbooru",
+            "url": "https://danbooru.donmai.us/",
+            "idSearchUrl": "https://danbooru.donmai.us/posts/"
+        }
+    },
+    "rightPanel": {
+        "exclusivity": true,
+        "lock": false,
+        "width": 250,
+        "widgets": [
+            {
+                "name": "Waifu",
+                "icon": "",
+                "enabled": true
+            },
+            {
+                "name": "Media",
+                "icon": "",
+                "enabled": true
+            },
+            {
+                "name": "NotificationHistory",
+                "icon": "",
+                "enabled": true
+            },
+            {
+                "name": "ScriptTimer",
+                "icon": "󰀠",
+                "enabled": false
+            },
+            {
+                "name": "Crypto",
+                "icon": "",
+                "enabled": false
+            },
+            {
+                "name": "Calendar",
+                "icon": "󰃰",
+                "enabled": true
+            },
+            {
+                "name": "SystemResources",
+                "icon": "󰍛",
+                "enabled": true
+            }
+        ]
+    },
+    "leftPanel": {
+        "exclusivity": true,
+        "lock": false,
+        "width": 400,
+        "widget": {
+            "name": "ChatBot",
+            "icon": "",
+            "enabled": true
+        }
+    },
+    "chatBot": {
+        "api": {
+            "name": "Gpt 4o mini",
+            "value": "openai/gpt-4o-mini",
+            "icon": "G4o",
+            "description": "OpenAI's gpt-4o-mini model, versatile and efficient"
+        },
+        "imageGeneration": false
+    },
+    "booru": {
+        "api": {
+            "name": "Danbooru",
+            "value": "danbooru",
+            "url": "https://danbooru.donmai.us/",
+            "idSearchUrl": "https://danbooru.donmai.us/posts/"
+        },
+        "tags": [
+            "-rating:explicit"
+        ],
+        "limit": 12,
+        "page": 1,
+        "columns": 2,
+        "bookmarks": [],
+        "selectedTab": "Danbooru"
+    },
+    "crypto": {
+        "favorite": {
+            "symbol": "",
+            "timeframe": ""
+        }
+    },
+    "fileManager": "nautilus",
+    "keyStrokeVisualizer": {
+        "visibility": {
+            "name": "Key Stroke Visualizer Visibility",
+            "value": false,
+            "type": "bool",
+            "min": 0,
+            "max": 1
+        },
+        "anchor": {
+            "name": "Key Stroke Visualizer Anchor",
+            "value": [
+                "bottom"
+            ],
+            "type": "select",
+            "min": 0,
+            "max": 0
+        }
+    },
+    "wallpaperSwitcher": {
+        "category": "defaults"
+    },
+    "apiKeys": {
+        "openrouter": {
+            "user": {
+                "name": "OpenRouter API User",
+                "value": "",
+                "type": "string",
+                "min": 1,
+                "max": 256
+            },
+            "key": {
+                "name": "OpenRouter API Key",
+                "value": "",
+                "type": "string",
+                "min": 1,
+                "max": 256
+            }
+        },
+        "danbooru": {
+            "user": {
+                "name": "Danbooru API User",
+                "value": "publicapi",
+                "type": "string",
+                "min": 1,
+                "max": 256
+            },
+            "key": {
+                "name": "Danbooru API Key",
+                "value": "Pr5ddYN7P889AnM6nq2nhgw1",
+                "type": "string",
+                "min": 1,
+                "max": 256
+            }
+        },
+        "gelbooru": {
+            "user": {
+                "name": "Gelbooru API User",
+                "value": "1667355",
+                "type": "string",
+                "min": 1,
+                "max": 256
+            },
+            "key": {
+                "name": "Gelbooru API Key",
+                "value": "1ccd9dd7c457c2317e79bd33f47a1138ef9545b9ba7471197f477534efd1dd05",
+                "type": "string",
+                "min": 1,
+                "max": 256
+            }
+        },
+        "safebooru": {
+            "user": {
+                "name": "Safebooru API User",
+                "value": "publicapi",
+                "type": "string",
+                "min": 1,
+                "max": 256
+            },
+            "key": {
+                "name": "Safebooru API Key",
+                "value": "Pr5ddYN7P889AnM6nq2nhgw1",
+                "type": "string",
+                "min": 1,
+                "max": 256
+            }
+        }
+    },
+    "weather": {
+        "city": "Pekanbaru",
+        "lat": 0.51667,
+        "lon": 101.44167
+    }
+}

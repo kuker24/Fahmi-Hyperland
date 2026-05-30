@@ -1,0 +1,83 @@
+# Fahmi Hyperland - Dependencies
+# Install these packages on a fresh Arch/CachyOS system
+
+# ============================================
+# CORE HYPRLAND
+# ============================================
+hyprland
+hyprpaper
+hypridle
+hyprlock
+hyprpicker
+hyprpolkitagent
+
+# ============================================
+# AGS (Aylur's GTK Shell)
+# ============================================
+aylurs-gtk-shell-git
+
+# ============================================
+# TERMINAL & TOOLS
+# ============================================
+kitty
+fastfetch
+starship
+
+# ============================================
+# FILE MANAGER
+# ============================================
+nautilus
+
+# ============================================
+# BROWSER
+# ============================================
+brave-bin
+
+# ============================================
+# MEDIA & IMAGE
+# ============================================
+imagemagick
+ffmpeg
+grim
+slurp
+wl-clipboard
+
+# ============================================
+# SYSTEM UTILITIES
+# ============================================
+brightnessctl
+wireplumber
+pipewire
+pipewire-pulse
+networkmanager
+nm-applet
+blueman
+blueman-applet
+
+# ============================================
+# THEMES & CURSORS
+# ============================================
+phinger-cursors
+whitesur-gtk-theme
+whitesur-icon-theme
+kvantum
+
+# ============================================
+# PYTHON
+# ============================================
+python-pywal
+
+# ============================================
+# BUILD TOOLS
+# ============================================
+gcc
+base-devel
+jq
+git
+
+# ============================================
+# OPTIONAL
+# ============================================
+# cava (audio visualizer)
+# obsidian (notes)
+# syncthing (file sync)
