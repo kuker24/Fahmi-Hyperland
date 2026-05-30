@@ -1,5 +1,5 @@
 [Default Applications]
-# Images - imv
+# Images
 image/jpeg=imv.desktop
 image/png=imv.desktop
 image/gif=imv.desktop
@@ -8,8 +8,10 @@ image/bmp=imv.desktop
 image/tiff=imv.desktop
 image/svg+xml=imv.desktop
 image/x-icon=imv.desktop
+image/heif=imv.desktop
+image/avif=imv.desktop
 
-# Videos - mpv
+# Videos
 video/mp4=mpv.desktop
 video/x-matroska=mpv.desktop
 video/webm=mpv.desktop
@@ -30,10 +32,15 @@ video/mp2t=mpv.desktop
 video/mp4v-es=mpv.desktop
 video/3gpp2=mpv.desktop
 video/flv=mpv.desktop
+video/x-avi=mpv.desktop
+video/x-flv=mpv.desktop
+video/vnd.divx=mpv.desktop
+video/msvideo=mpv.desktop
+video/x-theora+ogg=mpv.desktop
 application/x-matroska=mpv.desktop
 application/x-extension-mp4=mpv.desktop
 
-# Audio - mpv
+# Audio
 audio/mpeg=mpv.desktop
 audio/mp3=mpv.desktop
 audio/ogg=mpv.desktop
@@ -45,10 +52,10 @@ audio/x-flac=mpv.desktop
 audio/mp4=mpv.desktop
 audio/x-m4a=mpv.desktop
 
-# PDF - firefox (until zathura installed)
+# PDF
 application/pdf=firefox.desktop
 
-# Text - vim
+# Text
 text/plain=vim.desktop
 text/x-python=vim.desktop
 text/x-csrc=vim.desktop
