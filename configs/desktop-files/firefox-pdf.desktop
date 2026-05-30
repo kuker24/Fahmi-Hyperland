@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Firefox PDF Viewer
+GenericName=PDF Viewer
+Comment=View PDF files with Firefox
+Exec=firefox %F
+Icon=firefox
+Type=Application
+Categories=Office;Viewer;
+MimeType=application/pdf;
+Terminal=false
+NoDisplay=false
+StartupNotify=true

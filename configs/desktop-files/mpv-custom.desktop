@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=mpv Media Player
+GenericName=Media Player
+Comment=Play videos and audio
+Exec=mpv %F
+Icon=mpv
+Type=Application
+Categories=AudioVideo;Player;Video;Audio;
+MimeType=video/mp4;video/x-matroska;video/webm;video/avi;video/x-msvideo;video/quicktime;video/x-flv;video/mpeg;video/ogg;video/3gpp;video/3gp;video/divx;video/x-theora;video/x-ms-wmv;video/x-m4v;video/x-ms-asf;video/mp2t;video/mp4v-es;video/3gpp2;video/flv;video/x-avi;video/vnd.divx;video/msvideo;video/x-theora+ogg;application/x-matroska;application/x-extension-mp4;audio/mpeg;audio/mp3;audio/ogg;audio/wav;audio/flac;audio/aac;audio/x-wav;audio/x-flac;audio/mp4;audio/x-m4a;
+Terminal=false
+NoDisplay=false
+StartupNotify=true

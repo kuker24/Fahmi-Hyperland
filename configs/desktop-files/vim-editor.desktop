@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Vim Text Editor
+GenericName=Text Editor
+Comment=Edit text files
+Exec=kitty vim %F
+Icon=gvim
+Type=Application
+Categories=Development;TextEditor;
+MimeType=text/plain;text/x-python;text/x-csrc;text/x-c++src;text/xml;text/css;text/javascript;application/json;application/javascript;application/xml;application/x-shellscript;application/x-lua;
+Terminal=false
+NoDisplay=false
+StartupNotify=true

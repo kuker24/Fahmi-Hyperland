@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=imv Image Viewer
+GenericName=Image Viewer
+Comment=View images
+Exec=imv %F
+Icon=image-viewer
+Type=Application
+Categories=Graphics;Viewer;
+MimeType=image/jpeg;image/png;image/gif;image/webp;image/bmp;image/tiff;image/svg+xml;image/x-icon;image/heif;image/avif;image/jxl;image/x-png;image/jpg;
+Terminal=false
+NoDisplay=false
+StartupNotify=true
