@@ -232,3 +232,90 @@ main() {
 }
 
 main "$@"
+
+# ╔══════════════════════════════════════════════════════════════╗
+# ║  FIX: KDE/Dolphin File Associations (CachyOS specific)       ║
+# ╚══════════════════════════════════════════════════════════════╝
+echo ""
+echo "🔧 Fixing KDE file associations..."
+
+# Fix missing applications.menu symlink
+if [ ! -f /etc/xdg/menus/applications.menu ]; then
+    echo "⚠️  Creating applications.menu symlink..."
+    sudo ln -sf /etc/xdg/menus/plasma-applications.menu /etc/xdg/menus/applications.menu
+fi
+
+# Clean old state
+rm -f ~/.local/state/keditfiletypestaterc
+rm -f ~/.config/filetypesrc
+
+# Create custom desktop files
+mkdir -p ~/.local/share/applications
+
+cat > ~/.local/share/applications/imv-custom.desktop << 'DESKTOP'
+[Desktop Entry]
+Type=Application
+Name=imv Image Viewer
+GenericName=Image Viewer
+Comment=View images
+Exec=imv %F
+Icon=image-viewer
+Terminal=false
+Categories=Graphics;Viewer;
+MimeType=image/jpeg;image/png;image/gif;image/webp;image/bmp;image/tiff;image/svg+xml;image/heif;image/avif;image/jxl;
+DESKTOP
+
+cat > ~/.local/share/applications/mpv-custom.desktop << 'DESKTOP'
+[Desktop Entry]
+Type=Application
+Name=mpv Media Player
+GenericName=Media Player
+Comment=Play videos and audio
+Exec=mpv %F
+Icon=mpv
+Terminal=false
+Categories=AudioVideo;Player;Video;Audio;
+MimeType=video/mp4;video/x-matroska;video/webm;video/avi;video/x-msvideo;video/quicktime;video/x-flv;video/mpeg;video/ogg;video/3gpp;audio/mpeg;audio/mp3;audio/ogg;audio/wav;audio/flac;audio/aac;
+DESKTOP
+
+cat > ~/.local/share/applications/firefox-pdf.desktop << 'DESKTOP'
+[Desktop Entry]
+Type=Application
+Name=Firefox PDF Viewer
+GenericName=PDF Viewer
+Comment=View PDF files with Firefox
+Exec=firefox %F
+Icon=firefox
+Terminal=false
+Categories=Office;Viewer;
+MimeType=application/pdf;
+DESKTOP
+
+cat > ~/.local/share/applications/vim-editor.desktop << 'DESKTOP'
+[Desktop Entry]
+Type=Application
+Name=Vim Text Editor
+GenericName=Text Editor
+Comment=Edit text files with vim
+Exec=kitty vim %F
+Icon=gvim
+Terminal=false
+Categories=Development;TextEditor;
+MimeType=text/plain;text/x-python;text/x-csrc;text/x-c++src;text/xml;text/css;text/javascript;application/json;application/xml;application/x-shellscript;application/x-lua;
+DESKTOP
+
+# Rebuild sycoca with XDG_MENU_PREFIX
+env XDG_MENU_PREFIX=plasma- kbuildsycoca6 --noincremental
+
+# Update databases
+update-desktop-database ~/.local/share/applications
+
+# Set defaults
+xdg-mime default imv-custom.desktop image/png
+xdg-mime default imv-custom.desktop image/jpeg
+xdg-mime default mpv-custom.desktop video/mp4
+xdg-mime default mpv-custom.desktop audio/mpeg
+xdg-mime default firefox-pdf.desktop application/pdf
+xdg-mime default vim-editor.desktop text/plain
+
+echo "✅ KDE file associations fixed!"

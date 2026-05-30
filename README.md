@@ -260,3 +260,43 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **[⬆ Back to top](#fahmi-hyperland)**
 
 </div>
+
+## 🔧 Known Issues & Fixes
+
+### KDE/Dolphin "Open With" Dialog Blank (CachyOS)
+
+**Root Cause:** Missing `/etc/xdg/menus/applications.menu` symlink + corrupt sycoca cache.
+
+**Auto Fix:** Run the included script:
+```bash
+./scripts/fix-kde-file-associations.sh
+```
+
+**Manual Fix:**
+```bash
+# 1. Create symlink
+sudo ln -sf /etc/xdg/menus/plasma-applications.menu /etc/xdg/menus/applications.menu
+
+# 2. Clean old state
+rm -f ~/.local/state/keditfiletypestaterc
+
+# 3. Rebuild sycoca
+env XDG_MENU_PREFIX=plasma- kbuildsycoca6 --noincremental
+
+# 4. Update databases
+update-desktop-database ~/.local/share/applications
+
+# 5. Restart Dolphin
+killall dolphin && dolphin &
+```
+
+**Default Apps:**
+| Type | App |
+|------|-----|
+| 📷 Image | imv |
+| 🎬 Video | mpv |
+| 🎵 Audio | mpv |
+| 📄 PDF | firefox |
+| 📝 Text | vim |
+| 📁 Folder | dolphin |
+
