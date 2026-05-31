@@ -32,6 +32,7 @@ import { connectPopoverEvents } from "../../../utils/window";
 
 import Hyprland from "gi://AstalHyprland";
 import ControlPanel from "../../ControlPanel";
+import Wifi from "./sub-components/Wifi";
 const hyprland = Hyprland.get_default();
 
 function BrightnessWidget() {
@@ -494,6 +495,7 @@ function ControlPanelButton() {
 export default ({ halign }: { halign?: Gtk.Align | Accessor<Gtk.Align> }) => {
   return (
     <box class="utilities" spacing={5} halign={halign} hexpand>
+      <Wifi />
       <Battery />
       <BrightnessWidget />
       <Volume />

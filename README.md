@@ -339,3 +339,16 @@ systemctl --user list-timers 'fahmi-*'
 ### Danbooru request timeout on startup
 
 The Booru widget defaults to the local **Bookmarks** tab to avoid network calls to Danbooru during AGS startup. Click a Booru provider tab manually only when you want to fetch remote images.
+
+### WiFi reconnect from top bar
+
+`nm-applet` is disabled in Hyprland startup because it was issuing `user-requested` WiFi disconnects after a successful reconnect. WiFi is managed by the custom AGS `nmcli` widget in the top bar instead.
+
+If WiFi appears stuck:
+
+```bash
+nmcli radio wifi on
+nmcli dev wifi rescan
+nmcli con up '<saved-ssid-name>'
+```
+
