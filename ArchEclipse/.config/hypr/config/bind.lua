@@ -1,6 +1,6 @@
 local home = os.getenv("HOME") or ""
-local scriptsDir = home .. "/.config/hypr/scripts"
-local hyprDir = home .. "/.config/hypr"
+local scriptsDir = home .. "/.config/fahmi/hypr/scripts"
+local hyprDir = home .. "/.config/fahmi/hypr"
 local screenshot = scriptsDir .. "/screenshot.sh"
 local screenshotAll = scriptsDir .. "/screenshot_all.sh"
 local terminal = "kitty"
@@ -39,6 +39,10 @@ hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + CTRL + Return", hl.dsp.exec_cmd("[float] " .. terminal))
 -- # open btop in workspace 5
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("[workspace 5] " .. terminal .. " btop"))
+-- # open brave browser
+hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("brave"))
+-- # open dolphin file manager
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("dolphin"))
 
 -- ## Status Bar and Panels
 -- # start -- refresh main bar
@@ -64,9 +68,9 @@ hl.bind(mainMod .. " + ALT + n", hl.dsp.exec_cmd("ags request notes " .. monitor
 
 -- ## Screenshot and Screen Record Keybinds
 -- # screenshot workspace
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(screenshot .. " --now"))
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(screenshot .. " --now"))
 -- # screenshot area
-hl.bind(mainMod .. " + CTRL + SHIFT + S", hl.dsp.exec_cmd(screenshot .. " --area"))
+hl.bind(mainMod .. " + CTRL + SHIFT + P", hl.dsp.exec_cmd(screenshot .. " --area"))
 -- # screen record workspace
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd(scriptsDir .. "/screenrecord.sh --now"))
 -- # screen record area

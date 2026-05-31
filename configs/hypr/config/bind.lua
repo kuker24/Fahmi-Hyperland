@@ -41,6 +41,8 @@ hl.bind(mainMod .. " + CTRL + Return", hl.dsp.exec_cmd("[float] " .. terminal))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("[workspace 5] " .. terminal .. " btop"))
 -- # open brave browser
 hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("brave"))
+-- # open dolphin file manager
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("dolphin"))
 
 -- ## Status Bar and Panels
 -- # start -- refresh main bar

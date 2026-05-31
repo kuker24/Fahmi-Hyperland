@@ -1,14 +1,3 @@
 #!/bin/bash
-
-AGS_TMP="/tmp/ags-${USER}"
-mkdir -p "$AGS_TMP"
-
-ags quit
-
-killall gjs >/dev/null 2>&1
-
-ags bundle $HOME/.config/fahmi/ags/app.tsx $AGS_TMP/ags-bin
-
-nohup $AGS_TMP/ags-bin > /dev/null 2>&1 &
-
-exit 0
+# Toggle AGS bar visibility (don't restart!)
+ags toggle bar-eDP-1 2>/dev/null || ags toggle bar-eDP-1
