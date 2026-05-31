@@ -352,3 +352,15 @@ nmcli dev wifi rescan
 nmcli con up '<saved-ssid-name>'
 ```
 
+
+### WiFi manager button
+
+The top bar WiFi button opens `networkmanager_dmenu` via rofi. This is intentionally used instead of a custom WiFi list so password prompts and saved/new networks are handled by NetworkManager correctly.
+
+Fallback command:
+
+```bash
+networkmanager_dmenu
+# or
+kitty nmtui
+```
