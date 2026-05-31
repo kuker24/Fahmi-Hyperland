@@ -25,30 +25,58 @@ pkill -f "wallpaper-loop" 2>/dev/null
 /tmp/battery-check &
 /tmp/updates-check &
 
-# Check if cronie is running
-if ! systemctl is-active --quiet cronie; then
-    
-    action=$(notify-send \
-        --app-name="Hypr Scripts" \
-        --expire-time=0 \
-        --action=enable:"Enable Cronie" \
-        "Cronie not running" \
-    "Cron jobs will not execute")
-    
-    # FIRST action = index 0
-    case "$action" in
-        0)
-            echo "Enabling Cronie..."
-            pkexec systemctl enable --now cronie && systemctl start cronie
-        ;;
-    esac
-fi
+# Schedule checks with systemd user timers instead of cron/cronie.
+# This avoids the recurring "Cron jobs will not execute" warning and does not need sudo.
+SYSTEMD_USER_DIR="$HOME/.config/systemd/user"
+mkdir -p "$SYSTEMD_USER_DIR"
 
-# Update crontab with session variables
-{
-    crontab -l 2>/dev/null | grep -v "$TMP"
-    # Added XDG_RUNTIME_DIR so notify-send can reach your desktop
-    echo "*/5 * * * * XDG_RUNTIME_DIR=/run/user/$(id -u) $TMP/battery-check" # Check battery every 5 minutes
-    echo "0 */6 * * * XDG_RUNTIME_DIR=/run/user/$(id -u) $TMP/updates-check" # Check for updates every 6 hours
-} | crontab - || notify-send "Error" "Failed to update crontab"
+cat > "$SYSTEMD_USER_DIR/fahmi-battery-check.service" <<SERVICE
+[Unit]
+Description=Fahmi battery notification check
+
+[Service]
+Type=oneshot
+Environment=XDG_RUNTIME_DIR=/run/user/$(id -u)
+ExecStart=$TMP/battery-check
+SERVICE
+
+cat > "$SYSTEMD_USER_DIR/fahmi-battery-check.timer" <<TIMER
+[Unit]
+Description=Run Fahmi battery check every 5 minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+Unit=fahmi-battery-check.service
+
+[Install]
+WantedBy=timers.target
+TIMER
+
+cat > "$SYSTEMD_USER_DIR/fahmi-updates-check.service" <<SERVICE
+[Unit]
+Description=Fahmi updates notification check
+
+[Service]
+Type=oneshot
+Environment=XDG_RUNTIME_DIR=/run/user/$(id -u)
+ExecStart=$TMP/updates-check
+SERVICE
+
+cat > "$SYSTEMD_USER_DIR/fahmi-updates-check.timer" <<TIMER
+[Unit]
+Description=Run Fahmi updates check every 6 hours
+
+[Timer]
+OnBootSec=10min
+OnUnitActiveSec=6h
+Unit=fahmi-updates-check.service
+
+[Install]
+WantedBy=timers.target
+TIMER
+
+systemctl --user daemon-reload
+systemctl --user enable --now fahmi-battery-check.timer fahmi-updates-check.timer >/dev/null 2>&1 || \
+    notify-send "Error" "Failed to enable Fahmi systemd user timers"
 

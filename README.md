@@ -325,3 +325,17 @@ sudo ./scripts/fix-sudo-auth-stability.sh
 ```
 
 This resets stale `pam_faillock` entries, makes faillock less aggressive (`deny=5`, `unlock_time=60`), and removes dangerous numpad `evremap` mappings that can alter password digits.
+
+### Cronie/Cron jobs will not execute
+
+This setup uses **systemd user timers** instead of cron/cronie for battery and update checks, so no sudo/system cronie service is required.
+
+Timers installed by `compile-run-binaries.sh`:
+
+```bash
+systemctl --user list-timers 'fahmi-*'
+```
+
+### Danbooru request timeout on startup
+
+The Booru widget defaults to the local **Bookmarks** tab to avoid network calls to Danbooru during AGS startup. Click a Booru provider tab manually only when you want to fetch remote images.

@@ -210,7 +210,7 @@ export const defaultSettings: Settings = {
     page: 1,
     columns: 2,
     bookmarks: [],
-    selectedTab: booruApis[0].name,
+    selectedTab: "Bookmarks",
   },
   crypto: {
     favorite: {
@@ -236,7 +236,7 @@ export const defaultSettings: Settings = {
     },
   },
   wallpaperSwitcher: {
-    category: "defaults",
+    category: "defaults/sfw",
   },
   apiKeys: {
     openrouter: {
