@@ -300,3 +300,18 @@ killall dolphin && dolphin &
 | 📝 Text | vim |
 | 📁 Folder | dolphin |
 
+
+### hyprpm Outdated Headers
+
+If Hyprland shows:
+```text
+[hyprpm] Failed to load plugins: Outdated headers. Please run hyprpm update manually.
+```
+
+Run:
+```bash
+./scripts/fix-hyprpm-outdated-headers.sh
+hyprctl reload
+```
+
+Root cause: `/var/cache/hyprpm/$USER/state.toml` can become root-owned/stale after updates, so `hyprpm update` installs headers but fails to write the new plugin state hash.
