@@ -315,3 +315,13 @@ hyprctl reload
 ```
 
 Root cause: `/var/cache/hyprpm/$USER/state.toml` can become root-owned/stale after updates, so `hyprpm update` installs headers but fails to write the new plugin state hash.
+
+### Sudo Password Sometimes Rejected
+
+If `sudo` sometimes rejects the correct password, run:
+
+```bash
+sudo ./scripts/fix-sudo-auth-stability.sh
+```
+
+This resets stale `pam_faillock` entries, makes faillock less aggressive (`deny=5`, `unlock_time=60`), and removes dangerous numpad `evremap` mappings that can alter password digits.

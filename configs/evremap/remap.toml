@@ -1,0 +1,8 @@
+device_name = "AT Translated Set 2 keyboard"
+
+# Keep only safe non-password-affecting remap.
+# Removed numpad remaps because they can make sudo/login passwords appear "wrong"
+# when typing digits from the numpad.
+[[remap]]
+input = ["KEY_RIGHTALT"]
+output = ["KEY_F11"]
